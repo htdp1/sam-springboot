@@ -65,7 +65,7 @@ public class SamRequestmappingController {
   /*
    * curl --location --request DELETE 'http://localhost:8080/request/methods' \
    *  --header 'Content-Type: application/json' \
-   *  --data-raw '{ .. }'
+   *  --data-raw '{ .... }'
    */
   @DeleteMapping("/methods")
   public String deleteMethod() {
