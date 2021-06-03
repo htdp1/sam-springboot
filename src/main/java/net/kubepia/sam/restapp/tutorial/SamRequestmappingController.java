@@ -52,11 +52,21 @@ public class SamRequestmappingController {
     return "this is \"Post\" method\n";
   }
 
+  /*
+   * curl --location --request PUT 'http://localhost:8080/request/methods' \
+   *  --header 'Content-Type: application/json' \
+   *  --data-raw '{ .. }'
+   */
   @PutMapping("/methods")
   public String putMethod() {
     return "this is \"Put\" method\n";
   }
 
+  /*
+   * curl --location --request DELETE 'http://localhost:8080/request/methods' \
+   *  --header 'Content-Type: application/json' \
+   *  --data-raw '{ .. }'
+   */
   @DeleteMapping("/methods")
   public String deleteMethod() {
     return "this is \"Delete\" method\n";
