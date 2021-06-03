@@ -69,7 +69,7 @@ public class SamRequestmappingController {
    */
   @DeleteMapping("/methods")
   public String deleteMethod() {
-    return "this is \"Delete\" method\n";
+    return "this is \"Delete\" method\n";  
   }
 
 }
