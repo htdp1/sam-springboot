@@ -4,17 +4,22 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @RestController
 @RequestMapping(path = "request") // root reqeust path, define in value="" or path=""
 public class SamRequestmappingController {
 
+
   Logger logger = LoggerFactory.getLogger(SamRequestmappingController.class);
+
+  
 
   // http://domain/request, http://domain/request/
   @GetMapping("")
@@ -71,5 +76,11 @@ public class SamRequestmappingController {
   public String deleteMethod() {
     return "this is \"Delete\" method\n";  
   }
+
+  @GetMapping(value="/reg/{major:[vV][0-9]+}-{minor:[0-9]+}")
+  public String getRegularExp(@PathVariable String major, @PathVariable String minor) {
+      return "version:"+major+"-"+minor+"\n";
+  }
+
 
 }
