@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <withJansi>true</withJansi>
     <encoder>
       <Pattern>Common</Pattern>
       <!--<Pattern>[ACCESS] %h %l %u %t{yyyy-MM-dd HH:mm:ss.SSS} %s %b %D ms</Pattern> -->
-      <Pattern>%t{yyyy-MM-dd HH:mm:ss.SSS}\t [ %m %s ] --- [ %I ]  %U \t: %b bytes in %D ms </Pattern>
+      <Pattern>%t{yyyy-MM-dd HH:mm:ss.SSS}\t   %m %s --- [ %I ]  %U \t: %B bytes in %D ms </Pattern>
     </encoder>
   </appender>
 

@@ -1,7 +1,5 @@
 package net.kubepia.sam.restapp.tutorial;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,20 +9,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
+
 
 @RestController
 @RequestMapping(path = "request") // root reqeust path, define in value="" or path=""
+@Slf4j
 public class SamRequestmappingController {
 
 
-  Logger logger = LoggerFactory.getLogger(SamRequestmappingController.class);
+  // Logger logger = LoggerFactory.getLogger(SamRequestmappingController.class);
 
   
 
   // http://domain/request, http://domain/request/
   @GetMapping("")
   public String index() {
-    logger.trace("request home called");
+    log.info("request home called");
     return "request home";
   }
 
