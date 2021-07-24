@@ -2,6 +2,7 @@ package net.kubepia.sam.restapp.tutorial;
 
 import java.util.Map;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CookieValue;
@@ -22,11 +23,15 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SamRequestController {
 
+  public SamRequestController() {
+    log.info("SamRequestController constructor");
+  }
+
   // Logger logger = LoggerFactory.getLogger(SamReqInputController.class);
 
-  /* RequestHeader
-    curl --location --request GET 'localhost:8080/input/header' 
-  */
+  /*
+   * RequestHeader curl --location --request GET 'localhost:8080/input/header'
+   */
   @GetMapping("header")
   public String handleHeader(@RequestHeader("Accept") String accept,
       @RequestHeader(value = "Keep-Alive", required = false, defaultValue = "300") long keepAlive) {
@@ -49,41 +54,37 @@ public class SamRequestController {
   }
 
   /*
-    curl --location --request GET 'localhost:8080/input/param?name=sk%EB%A7%A8&age=30'
-  */
+   * curl --location --request GET
+   * 'localhost:8080/input/param?name=sk%EB%A7%A8&age=30'
+   */
   @GetMapping("param")
-  public String handleQueryString(@RequestParam("name")String name, @RequestParam("age")int age){
-    String msg = "name :" + name + ",age:"+age +"\n";
+  public String handleQueryString(@RequestParam("name") String name, @RequestParam("age") int age) {
+    String msg = "name :" + name + ",age:" + age + "\n";
     log.info(msg);
     return msg;
   }
 
-  /* 
-  curl --location --request POST 'localhost:8080/input/body' \
-    --header 'Content-Type: application/json' \
-    --data-raw '{
-        "title":"제목",
-        "description":"설명"
-    }' 
+  /*
+   * curl --location --request POST 'localhost:8080/input/body' \ --header
+   * 'Content-Type: application/json' \ --data-raw '{ "title":"제목",
+   * "description":"설명" }'
    */
   @PostMapping("body")
   public @ResponseBody TodoItem handleRequestBody(@RequestBody TodoItem todo) {
-      // todo.setTitle(todo.getTitle()+"-return");
-      log.info(todo.toString());
-      return todo;
+    // todo.setTitle(todo.getTitle()+"-return");
+    log.info(todo.toString());
+    return todo;
   }
 
-  /*   
-  curl --location --request POST 'localhost:8080/input/form' \
-          --form 'title="제목 값"' \
-          --form 'description="설명입력값"' 
-  */
-  @PostMapping(value = "form",produces = MediaType.APPLICATION_JSON_VALUE)
-  public @ResponseBody String handleRequestForm(@RequestParam("title")String title, @RequestParam("description")String description){
+  /*
+   * curl --location --request POST 'localhost:8080/input/form' \ --form
+   * 'title="제목 값"' \ --form 'description="설명입력값"'
+   */
+  @PostMapping(value = "form", produces = MediaType.APPLICATION_JSON_VALUE)
+  public @ResponseBody String handleRequestForm(@RequestParam("title") String title,
+      @RequestParam("description") String description) {
 
-    return "{ \"title\":"+ title +", \"description\":"+ description +"}\n";
+    return "{ \"title\":" + title + ", \"description\":" + description + "}\n";
   }
 
-
-  
 }
