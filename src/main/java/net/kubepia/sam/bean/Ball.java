@@ -1,4 +1,4 @@
-package net.kubepia.sam.container;
+package net.kubepia.sam.bean;
 
 interface Ball {
   String touchBall();

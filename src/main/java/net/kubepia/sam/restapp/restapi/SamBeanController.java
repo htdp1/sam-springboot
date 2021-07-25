@@ -1,4 +1,4 @@
-package net.kubepia.sam.restapp.tutorial;
+package net.kubepia.sam.restapp.restapi;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

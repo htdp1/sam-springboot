@@ -13,9 +13,18 @@
     },
     {
       "type": "java",
-      "name": "Debug",
+      "name": "dev",
       "request": "launch",
       "mainClass": "net.kubepia.sam.restapp.RestappApplication",
+      "args": "--spring.profiles.active=dev",
+      "projectName": "restapp"
+    },
+    {
+      "type": "java",
+      "name": "prd",
+      "request": "launch",
+      "mainClass": "net.kubepia.sam.restapp.RestappApplication",
+      "args": "--spring.profiles.active=prd",
       "projectName": "restapp"
     }
   ]

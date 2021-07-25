@@ -1,4 +1,4 @@
-package net.kubepia.sam.container;
+package net.kubepia.sam.bean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +22,7 @@ public class Player {
 
   public static void main(String[] args) {
     AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
-    context.scan("net.kubepia.sam.container");
+    context.scan("net.kubepia.sam.bean");
     context.refresh();
     Player player = context.getBean(Player.class);
     player.touch();

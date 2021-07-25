@@ -1,4 +1,4 @@
-package net.kubepia.sam.restapp.tutorial;
+package net.kubepia.sam.restapp.restapi;
 
 import java.util.Map;
 

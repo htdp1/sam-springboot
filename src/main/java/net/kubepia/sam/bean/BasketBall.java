@@ -1,4 +1,4 @@
-package net.kubepia.sam.container;
+package net.kubepia.sam.bean;
 
 import org.springframework.stereotype.Component;
 
