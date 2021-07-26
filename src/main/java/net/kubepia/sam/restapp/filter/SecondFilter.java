@@ -11,19 +11,19 @@ import javax.servlet.ServletResponse;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import lombok.extern.java.Log;
+import lombok.extern.slf4j.Slf4j;
 
-@Log
+@Slf4j
 @Component
 @Order(2)
-public class SecondFilter implements Filter{
+public class SecondFilter implements Filter {
 
   @Override
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
       throws IOException, ServletException {
-    log.info("before in second filter");
+    // log.info("before in second filter");
     chain.doFilter(request, response);
-    log.info("after in second filter");
+    // log.info("after in second filter");
   }
-  
+
 }
