@@ -29,6 +29,9 @@ public class SamMybatisController {
     return "mybatis api";
   }
 
+  /**
+   * Annotation API Start
+   */
   @GetMapping(value = "employees")
   public @ResponseBody List<EmployeeDTO> getEmployees() {
     return samEmployeeService.getEmployees();
@@ -56,16 +59,60 @@ public class SamMybatisController {
     return "{\"status\":\"ok\"}";
   }
 
+  /******************************* */
+
+  /**
+   * Transaction Test
+   */
   @PostMapping(value = "employees")
   public EmployeeDTO insertEmployees(@RequestBody EmployeeDTO employee) {
     this.samEmployeeService.insertEmployees(employee);
     return samEmployeeService.getEmployee(employee.getEmpNo());
   }
 
-  @PostMapping(value = "employeestr")
+  @PostMapping(value = "tr/employees")
   public EmployeeDTO insertEmployeestr(@RequestBody EmployeeDTO employee) {
-    this.samEmployeeService.insertEmployeesTR(employee);
+    try {
+      this.samEmployeeService.insertEmployeesTR(employee);
+    } catch (Exception e) {
+    }
+
     return samEmployeeService.getEmployee(employee.getEmpNo());
   }
+
+  /************************** */
+
+  /**
+   * Mapp XML API Start
+   */
+
+  @GetMapping(value = "xml/employees")
+  public @ResponseBody List<EmployeeDTO> getEmployeesXml() {
+    return samEmployeeService.getEmployees();
+  }
+
+  @GetMapping(value = "xml/employeesmap")
+  public @ResponseBody List<HashMap<String, Object>> getEmployeesMapXml() {
+    return samEmployeeService.getEmployeesMap();
+  }
+
+  @GetMapping(value = "xml/employees/{id}")
+  public @ResponseBody EmployeeDTO findEmployeeXml(@PathVariable(required = false) Integer id) {
+    return samEmployeeService.getEmployee(id);
+  }
+
+  @PostMapping(value = "xml/employee")
+  public EmployeeDTO insertEmployeeXml(@RequestBody EmployeeDTO employee) {
+    this.samEmployeeService.insertEmployee(employee);
+    return samEmployeeService.getEmployee(employee.getEmpNo());
+  }
+
+  @DeleteMapping(value = "xml/employees/{id}")
+  public String removeEmployeeXml(@PathVariable(required = false) Integer id) {
+    this.samEmployeeService.deleteEmployeeById(id);
+    return "{\"status\":\"ok\"}";
+  }
+
+  /******************************* */
 
 }

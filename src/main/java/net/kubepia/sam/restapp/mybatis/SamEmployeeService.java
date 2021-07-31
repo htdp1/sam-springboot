@@ -15,7 +15,10 @@ import net.kubepia.sam.restapp.mybatis.model.EmployeeDTO;
 public class SamEmployeeService {
   @Autowired
   SamEmployeeMapper samEmployeeMapper;
+  @Autowired
+  SamEmployeeXmlMapper samEmployeeXmlMapper;
 
+  // Annotation method
   public List<EmployeeDTO> getEmployees() {
     log.info("service called");
     return samEmployeeMapper.selectAll();
@@ -34,6 +37,11 @@ public class SamEmployeeService {
     this.samEmployeeMapper.save(employee);
   }
 
+  public void deleteEmployeeById(int id) {
+    this.samEmployeeMapper.deleteEmployeeById(id);
+  }
+
+  // Transaction test
   public void insertEmployees(EmployeeDTO employee) {
     this.samEmployeeMapper.save(employee);
     employee.setEmpNo(9900);
@@ -41,13 +49,33 @@ public class SamEmployeeService {
   }
 
   @Transactional(rollbackFor = Exception.class)
-  public void insertEmployeesTR(EmployeeDTO employee) {
+  public void insertEmployeesTR(EmployeeDTO employee) throws Exception {
     this.samEmployeeMapper.save(employee);
     employee.setEmpNo(9900);
+    throw new Exception("intended error");
+    // this.samEmployeeMapper.save(employee);
+  }
+
+  // Mapp Xml service
+  public List<EmployeeDTO> getEmployeesXml() {
+    log.info("service called");
+    return samEmployeeXmlMapper.selectAll();
+  }
+
+  public List<HashMap<String, Object>> getEmployeesMapXml() {
+    log.info("service called");
+    return samEmployeeXmlMapper.selectAllMap();
+  }
+
+  public EmployeeDTO getEmployeeXml(int id) {
+    return samEmployeeXmlMapper.findById(id);
+  }
+
+  public void insertEmployeeXml(EmployeeDTO employee) {
     this.samEmployeeMapper.save(employee);
   }
 
-  public void deleteEmployeeById(int id) {
+  public void deleteEmployeeByIdXml(int id) {
     this.samEmployeeMapper.deleteEmployeeById(id);
   }
 }

@@ -12,7 +12,7 @@ public class EmployeeDTO {
   private String lastName;
 
   private java.util.Date hireDate;
-  private String birthDate;
+  private java.util.Date birthDate;
 
   private String gender;
 }

@@ -13,10 +13,10 @@ import net.kubepia.sam.restapp.mybatis.model.EmployeeDTO;
 
 @Mapper
 public interface SamEmployeeMapper {
-  @Select("select * from employees limit 1")
+  @Select("select * from employees")
   List<EmployeeDTO> selectAll();
 
-  @Select("select * from employees limit 1")
+  @Select("select * from employees limit 100")
   List<HashMap<String, Object>> selectAllMap();
 
   @Select("select * from employees where emp_no=#{emp_no}")

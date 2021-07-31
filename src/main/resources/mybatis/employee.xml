@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.kubepia.sam.restapp.mybatis.SamEmployeeXmlMapper">
+    <select id="selectAll" resultType="EmployeeDTO">
+        select * from employees limit 100
+    </select>
+    <select id="selectAllMap" resultType="java.util.HashMap">
+        select * from employees limit 100
+    </select>
+    <select id="findById" resultType="EmployeeDTO">
+        select * from employees where emp_no=#{emp_no}
+    </select>
+    <insert id="save" parameterType="EmployeeDTO">
+        insert into employees (emp_no,gender, birth_date, last_name, first_name,hire_date)
+        values (#{empNo},#{gender}, #{birthDate}, #{lastName}, #{firstName},#{hireDate})
+    </insert>
+    <delete id="deleteEmployeeById">
+        Delete from employees 
+        where emp_no=#{emp_no}
+    </delete>
+</mapper>

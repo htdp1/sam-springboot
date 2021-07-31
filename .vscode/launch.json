@@ -21,10 +21,10 @@
     },
     {
       "type": "java",
-      "name": "prd",
+      "name": "local",
       "request": "launch",
       "mainClass": "net.kubepia.sam.restapp.RestappApplication",
-      "args": "--spring.profiles.active=prd",
+      // "args": "--spring.profiles.active=prd",
       "projectName": "restapp"
     }
   ]
