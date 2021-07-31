@@ -15,4 +15,5 @@ public class EmployeeDTO {
   private java.util.Date birthDate;
 
   private String gender;
+
 }
