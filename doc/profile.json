@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "gender": "female",
+      "name": { "title": "Mrs", "first": "Sara", "last": "Mortensen" },
+      "location": {
+        "street": { "number": 2552, "name": "Østermarken" },
+        "city": "Nimtofte",
+        "state": "Syddanmark",
+        "country": "Denmark",
+        "postcode": 37966,
+        "coordinates": { "latitude": "-33.2115", "longitude": "161.1429" },
+        "timezone": {
+          "offset": "+9:00",
+          "description": "Tokyo, Seoul, Osaka, Sapporo, Yakutsk"
+        }
+      },
+      "email": "sara.mortensen@example.com",
+      "login": {
+        "uuid": "c86e4f8e-4645-430b-ad8b-a005f63c2409",
+        "username": "sadostrich112",
+        "password": "luke",
+        "salt": "xsumaRQ2",
+        "md5": "b5aa292f14fcd974adbf5a70821b3bc2",
+        "sha1": "b66c03e6e989c047c2aeda78fbe4897e07dcf1bb",
+        "sha256": "c9f9a92535a11bf14bdb84c0df478baea485912207e5934a3d7c237fd5e64c99"
+      },
+      "dob": { "date": "1946-08-04T11:06:45.533Z", "age": 75 },
+      "registered": { "date": "2007-10-16T07:43:55.870Z", "age": 14 },
+      "phone": "32713061",
+      "cell": "35121066",
+      "id": { "name": "CPR", "value": "040846-7656" },
+      "picture": {
+        "large": "https://randomuser.me/api/portraits/women/93.jpg",
+        "medium": "https://randomuser.me/api/portraits/med/women/93.jpg",
+        "thumbnail": "https://randomuser.me/api/portraits/thumb/women/93.jpg"
+      },
+      "nat": "DK"
+    }
+  ],
+  "info": {
+    "seed": "30f822993b4435fb",
+    "results": 1,
+    "page": 1,
+    "version": "1.3"
+  }
+}
