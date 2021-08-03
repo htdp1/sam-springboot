@@ -1,11 +1,14 @@
 package net.kubepia.sam.restapp.client;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -30,7 +33,7 @@ public class RestClientNonBlockIO {
   }
 
   @GetMapping(value = { "blocking" })
-  public String getTweetsBlocking() {
+  public String getProfileBlocking() {
     log.info("Starting BLOCKING Controller!");
 
     // RestTemplate restTemplate = new RestTemplate();
@@ -45,8 +48,24 @@ public class RestClientNonBlockIO {
 
   }
 
+  @GetMapping(value = { "blocking2" })
+  public @ResponseBody List<Tweet> getTweetsBlocking() {
+    log.info("Starting BLOCKING Controller!");
+
+    // RestTemplate restTemplate = new RestTemplate();
+    ResponseEntity<List<Tweet>> response = restTemplate.exchange("http://localhost:8080/tweet", HttpMethod.GET, null,
+        new ParameterizedTypeReference<List<Tweet>>() {
+        });
+
+    List<Tweet> result = response.getBody();
+    // result.forEach(tweet -> log.info(tweet.toString()));
+    log.info("Exiting BLOCKING Controller!");
+    return result;
+
+  }
+
   @GetMapping(value = { "nonblocking" })
-  public Flux<String> getTweetsNonBlocking() {
+  public @ResponseBody Flux<String> getTweetsNonBlocking() {
     log.info("Starting NON-BLOCKING Controller!");
     Flux<String> flux = webclient.get().uri(uri).retrieve().bodyToFlux(String.class);
 
@@ -59,11 +78,11 @@ public class RestClientNonBlockIO {
   @GetMapping(value = { "nonblocking2" })
   public String getTweetsNonBlocking2() {
     log.info("Starting NON-BLOCKING Controller!");
-    String tweetFlux = webclient.get().uri(uri).retrieve().bodyToMono(String.class).block();
+    String profile = webclient.get().uri(uri).retrieve().bodyToMono(String.class).block();
 
     // tweetFlux.subscribe(tweet -> log.info(tweet.toString()));
     log.info("Exiting NON-BLOCKING Controller!");
-    return tweetFlux;
+    return profile;
 
   }
 

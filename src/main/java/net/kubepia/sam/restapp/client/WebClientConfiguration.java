@@ -49,11 +49,8 @@ public class WebClientConfiguration {
     SslContext sslContext = SslContextBuilder.forClient().trustManager(InsecureTrustManagerFactory.INSTANCE).build();
     HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(sslContext))
         .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000);
-
-    // HttpClient httpClient =
-    // HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000);
     WebClient webClient = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient))
-        .baseUrl(randomProfileUri).build();
+        .baseUrl(randomProfileUri).defaultHeader("API-BEARER", "skcc.com").build();
     return webClient;
   }
 
@@ -63,10 +60,8 @@ public class WebClientConfiguration {
     HttpClient httpClient = HttpClient.create().secure(t -> t.sslContext(sslContext))
         .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000);
 
-    // HttpClient httpClient =
-    // HttpClient.create().option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000);
     WebClient webClient = WebClient.builder().clientConnector(new ReactorClientHttpConnector(httpClient))
-        .baseUrl(tweetUri).build();
+        .baseUrl(tweetUri).defaultHeader("API-KEY", "Q!W@W#E$RRRR@##").build();
     return webClient;
   }
 
