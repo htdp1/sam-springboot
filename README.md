@@ -31,3 +31,13 @@
 
 https://developpaper.com/springboot-episode-5-integrating-listeners-filters-and-interceptors/
 
+https://randomuser.me/api/
+
+
+
+vegeta attack -name=blocking -rate=50 -duration=5s -targets=blocking.txt > blocking.50qps.bin
+vegeta attack -name=nonblocking -rate=50 -duration=5s -targets=nonblocking.txt > nonblocking.50qps.bin
+
+
+cat blocking.50qps.bin | vegeta plot > blocking.50qps.bin.html
+cat nonblocking.50qps.bin | vegeta plot > nonblocking.50qps.bin.html
