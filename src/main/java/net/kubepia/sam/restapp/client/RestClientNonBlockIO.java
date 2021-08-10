@@ -20,7 +20,8 @@ import reactor.core.publisher.Flux;
 @Slf4j
 @RequestMapping("client")
 public class RestClientNonBlockIO {
-  String uri = "https://randomuser.me/api/";// "http://localhost:8080/client/tweets";
+  // String uri = "https://randomuser.me/api/";
+  String uri = "http://localhost:8080/rest/tweets";
 
   @Autowired
   RestTemplate restTemplate;
