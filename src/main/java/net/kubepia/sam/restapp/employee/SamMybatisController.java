@@ -1,4 +1,4 @@
-package net.kubepia.sam.employee;
+package net.kubepia.sam.restapp.employee;
 
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.extern.slf4j.Slf4j;
-import net.kubepia.sam.employee.model.EmployeeDTO;
+import net.kubepia.sam.restapp.employee.model.EmployeeDTO;
 
 @RestController
 @Slf4j

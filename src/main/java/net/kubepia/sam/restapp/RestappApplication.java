@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @RestController
 @Configuration
-@MapperScan(basePackages = { "net.kubepia.sam.employee" })
+@MapperScan(basePackages = { "net.kubepia.sam.restapp.employee" })
 public class RestappApplication {
 
 	public static void main(String[] args) {

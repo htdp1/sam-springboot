@@ -1,4 +1,4 @@
-package net.kubepia.sam.employee.model;
+package net.kubepia.sam.restapp.employee.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
