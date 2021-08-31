@@ -1,4 +1,4 @@
-package net.kubepia.sam.restapp.mybatis;
+package net.kubepia.sam.employee;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
-import net.kubepia.sam.restapp.mybatis.model.EmployeeDTO;
+import net.kubepia.sam.employee.model.EmployeeDTO;
 
 @Mapper
 public interface SamEmployeeMapper {

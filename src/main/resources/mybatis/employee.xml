@@ -2,7 +2,7 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="net.kubepia.sam.restapp.mybatis.SamEmployeeXmlMapper">
+<mapper namespace="SamEmployeeXmlMapper">
     <select id="selectAll" resultType="EmployeeDTO">
         select * from employees limit 100
     </select>

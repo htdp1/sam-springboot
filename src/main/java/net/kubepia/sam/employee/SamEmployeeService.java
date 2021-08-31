@@ -1,4 +1,4 @@
-package net.kubepia.sam.restapp.mybatis;
+package net.kubepia.sam.employee;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
-import net.kubepia.sam.restapp.mybatis.model.EmployeeDTO;
+import net.kubepia.sam.employee.model.EmployeeDTO;
 
 @Service
 @Slf4j

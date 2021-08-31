@@ -3,12 +3,14 @@ package net.kubepia.sam.restapp;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-@MapperScan(basePackages = "net.kubepia.sam.restapp.mybatis")
+@Configuration
+@MapperScan(basePackages = { "net.kubepia.sam.employee" })
 public class RestappApplication {
 
 	public static void main(String[] args) {
